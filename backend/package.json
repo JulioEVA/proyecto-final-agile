@@ -1,0 +1,8 @@
+{
+  "name": "backend",
+  "module": "app.js",
+  "type": "module",
+  "dependencies": {
+    "mongoose": "^8.7.2"
+  }
+}
