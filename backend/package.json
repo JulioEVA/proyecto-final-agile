@@ -1,8 +1,11 @@
 {
   "name": "backend",
   "module": "app.js",
-  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
+    "jest": "^29.7.0",
     "mongoose": "^8.7.2"
   }
 }
