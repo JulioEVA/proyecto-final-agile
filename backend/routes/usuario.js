@@ -4,6 +4,7 @@ const usuarioController = require("../controllers/usuarioController");
 router.post("/", usuarioController.crearUsuario);
 router.get("/", usuarioController.obtenerUsuarios);
 router.get("/:id", usuarioController.obtenerUsuarioPorId);
+router.get("/nombre/:nombreUsuario", usuarioController.obtenerUsuarioPorNombre);
 router.put("/:id", usuarioController.actualizarUsuario);
 router.delete("/:id", usuarioController.eliminarUsuario);
 

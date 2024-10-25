@@ -54,3 +54,7 @@ exports.eliminarUsuario = async (id) => {
 exports.obtenerUsuarioPorNombre = async (nombreUsuario) => {
   return await Usuario.findOne({ nombreUsuario });
 };
+
+exports.obtenerUsuarioCompleto = async (nombreUsuario) => {
+  return await Usuario.findOne({ nombreUsuario }).select("+contraseña");
+};

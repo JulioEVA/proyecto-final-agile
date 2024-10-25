@@ -1,4 +1,5 @@
 const usuarioDao = require("../daos/usuarioDAO");
+const bcrypt = require("bcrypt");
 
 /**
  * Crea un usuario.
@@ -7,7 +8,11 @@ const usuarioDao = require("../daos/usuarioDAO");
  */
 exports.crearUsuario = async (req, res) => {
   try {
+    await bcrypt.hash(req.body.contraseña, 10).then((hash) => {
+      req.body.contraseña = hash;
+    });
     const usuario = await usuarioDao.crearUsuario(req.body);
+    usuario["contraseña"] = undefined;
     res.status(201).json(usuario);
   } catch (error) {
     res.status(400).json({ message: "Error al crear el usuario", error });
@@ -92,8 +97,26 @@ exports.obtenerUsuarioPorNombre = async (req, res) => {
     if (!usuario) {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
-    res.status(200).json(usuario);
+    return res.status(200).json(usuario);
   } catch (error) {
     res.status(500).json({ message: "Error al obtener el usuario", error });
+  }
+};
+
+/**
+ * Inicia sesión.
+ * @param {*} req La solicitud HTTP con el nombre de usuario y la contraseña.
+ * @param {*} res La respuesta HTTP.
+ */
+exports.obtenerUsuarioCompleto = async (req, res) => {
+  const { nombreUsuario } = req.body;
+  try {
+    const usuario = await usuarioDao.obtenerUsuarioCompleto(nombreUsuario);
+    if (!usuario) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+    return usuario;
+  } catch (error) {
+    res.status(400).json({ message: "Error al iniciar sesión", error });
   }
 };
