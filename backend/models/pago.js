@@ -6,12 +6,7 @@ const PagoSchema = new mongoose.Schema({
     ref: "Participante",
     required: true,
   },
-  sorteoId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Sorteo",
-    required: true,
-  },
-  numerosPagados: [{ type: Number, required: true }],
+  numerosPagados: [{ type: mongoose.Schema.Types.ObjectId, required: true }],
   comprobante: { type: String },
   montoTotal: { type: Number, required: true },
   metodoPago: {
