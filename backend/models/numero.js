@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const NumeroSchema = new mongoose.Schema({
-  numero: { type: Number, required: true },
+  numero: { type: Number, required: true, unique: true },
   estado: {
     type: String,
     enum: ["libre", "apartado", "vendido"],
