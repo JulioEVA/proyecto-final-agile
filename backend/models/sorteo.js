@@ -1,9 +1,17 @@
 const mongoose = require("mongoose");
+const { validateDate } = require("../utils/validators");
 
 const SorteoSchema = new mongoose.Schema({
   nombre: { type: String, required: true },
   descripcion: { type: String },
-  fechaInicio: { type: Date, required: true },
+  fechaInicio: {
+    type: Date,
+    required: true,
+    validate: {
+      validator: validateDate,
+      message: "Fecha de inicio no puede estar en el pasado",
+    },
+  },
   fechaFin: { type: Date, required: true },
   fechaSorteo: { type: Date, required: true },
   rangoNumeros: { type: Number, required: true },
