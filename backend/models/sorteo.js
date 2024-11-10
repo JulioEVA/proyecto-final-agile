@@ -13,7 +13,21 @@ const SorteoSchema = new mongoose.Schema({
     },
   },
   fechaFin: { type: Date, required: true },
-  fechaSorteo: { type: Date, required: true },
+  fechaSorteo: {
+    type: Date,
+    required: true,
+    validate: {
+      validator: function (value) {
+        return (
+          validateDate(value) &&
+          value > this.fechaInicio &&
+          !(value <= this.fechaFin) // No puede haber sorteo antes de que se termine la venta de números
+        );
+      },
+      message:
+        "Fecha de sorteo no puede estar en el pasado, ni ser antes de la fecha de inicio o fin",
+    },
+  },
   rangoNumeros: { type: Number, required: true },
   precioNumero: { type: Number, required: true },
   imagenPromocional: { type: String },
