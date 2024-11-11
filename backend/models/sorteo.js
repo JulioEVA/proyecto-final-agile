@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { validateDate } = require("../utils/validators");
 
 const SorteoSchema = new mongoose.Schema({
-  nombre: { type: String, required: true },
+  nombre: { type: String, required: true, unique: true },
   descripcion: { type: String },
   fechaInicio: {
     type: Date,
@@ -54,4 +54,6 @@ const SorteoSchema = new mongoose.Schema({
   numeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "Numero" }], // Subdocumentos para los números del sorteo
 });
 
-module.exports = mongoose.model("Sorteo", SorteoSchema);
+const Sorteo = mongoose.model("Sorteo", SorteoSchema);
+Sorteo.createIndexes();
+module.exports = Sorteo;
