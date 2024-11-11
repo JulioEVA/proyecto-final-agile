@@ -10,6 +10,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      mongo:
+        image: mongo:latest  # Use the latest official MongoDB Docker image
+        options: --health-cmd="curl --silent --fail localhost:27017 || exit 1"  # Health check to ensure MongoDB is ready
+        ports:
+          - 27017:27017  # Expose MongoDB port to the workflow
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root  # Set environment variables (if needed)
+          MONGO_INITDB_ROOT_PASSWORD: example
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -19,12 +29,12 @@ jobs:
       with:
         node-version: '18.x'
         cache: 'npm'
-        cache-dependency-path: './backend/package-lock.json'  # Specify the correct path to the package-lock.json file
+        cache-dependency-path: './backend/package-lock.json'
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./backend  # Ensure that we're installing dependencies in the 'backend' folder
+      working-directory: ./backend
 
     - name: Run tests
       run: npm test
-      working-directory: ./backend  # Run tests in the 'backend' folder
+      working-directory: ./backend
