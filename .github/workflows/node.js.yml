@@ -19,11 +19,12 @@ jobs:
       with:
         node-version: '18.x'
         cache: 'npm'
+        cache-dependency-path: './backend/package-lock.json'  # Specify the correct path to the package-lock.json file
 
     - name: Install dependencies
       run: npm install
-      working-directory: backend  # Ensure the 'backend' directory is at the root
+      working-directory: ./backend  # Ensure that we're installing dependencies in the 'backend' folder
 
     - name: Run tests
       run: npm test
-      working-directory: backend  # Make sure tests are running from the correct directory
+      working-directory: ./backend  # Run tests in the 'backend' folder
