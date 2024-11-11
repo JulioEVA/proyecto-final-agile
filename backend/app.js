@@ -17,7 +17,7 @@ const { login, authMiddleware } = require("./middlewares/auth");
 const app = express();
 dotenv.config();
 app.use(cors());
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
