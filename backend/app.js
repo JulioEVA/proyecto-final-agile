@@ -33,6 +33,21 @@ app.use("/api/sorteos", sorteoRoutes);
 app.use("/api/participantes", participanteRoutes);
 app.use("/api/pagos", pagoRoutes);
 app.use("/api/numeros", numeroRoutes);
+app.get("/", (req, res) => {
+  res.send({
+    message: "Welcome to the Sorteos API!",
+    description:
+      "This API allows you to create, manage, and participate in raffles (sorteos). You can register users, manage raffle entries, process payments, and track raffle statuses in real-time.",
+    endpoints: {
+      users: "/api/usuarios - Manage user accounts",
+      raffles: "/api/sorteos - Create and manage raffles",
+      participants: "/api/participantes - View and manage participants",
+      payments: "/api/pagos - Handle payments for raffle entries",
+      numbers: "/api/numeros - Assign and view raffle numbers",
+    },
+    version: "1.0.0",
+  });
+});
 
 app.use(errorHandler);
 
