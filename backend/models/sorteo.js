@@ -55,5 +55,4 @@ const SorteoSchema = new mongoose.Schema({
 });
 
 const Sorteo = mongoose.model("Sorteo", SorteoSchema);
-Sorteo.createIndexes();
 module.exports = Sorteo;
