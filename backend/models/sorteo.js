@@ -38,8 +38,17 @@ const SorteoSchema = new mongoose.Schema({
         "Fecha de sorteo no puede estar en el pasado, ni ser antes de la fecha de inicio o fin",
     },
   },
-  rangoNumeros: { type: Number, required: true },
-  precioNumero: { type: Number, required: true },
+  rangoNumeros: {
+    type: Number,
+    required: true,
+    min: [1, "El sorteo debe tener al menos un número"],
+  },
+  precioNumero: {
+    type: Number,
+    required: true,
+    min: [0, "El precio no puede ser negativo"],
+    set: (value) => Math.floor(value * 100) / 100, // Redondear a 2 decimales
+  },
   imagenPromocional: { type: String },
   estado: { type: String, enum: ["activo", "finalizado"], default: "activo" },
   numeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "Numero" }], // Subdocumentos para los números del sorteo
