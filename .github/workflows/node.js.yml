@@ -16,10 +16,7 @@ jobs:
         options: --health-cmd="curl --silent --fail localhost:27017 || exit 1"  # Health check to ensure MongoDB is ready
         ports:
           - 27017:27017  # Expose MongoDB port to the workflow
-        env:
-          MONGO_INITDB_ROOT_USERNAME: root  # Set environment variables (if needed)
-          MONGO_INITDB_ROOT_PASSWORD: example
-
+  
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
