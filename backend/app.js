@@ -19,7 +19,11 @@ dotenv.config();
 app.use(cors());
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect("mongodb://localhost:27017/sorteosdb");
+const clientOptions = {
+  serverApi: { version: "1", strict: true, deprecationErrors: true },
+};
+const uri = `mongodb+srv://julio:${process.env.DB_PASSWORD}@free-cluster.uhnhc.mongodb.net/?retryWrites=true&w=majority&appName=Free-Cluster`;
+
 app.use(express.json());
 
 app.post("/login", login);
@@ -36,8 +40,21 @@ app.use("/api/numeros", numeroRoutes);
 
 app.use(errorHandler);
 
+async function run() {
+  try {
+    // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
+    await mongoose.connect(uri, clientOptions);
+    await mongoose.connection.db.admin().command({ ping: 1 });
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!"
+    );
+  } catch (error) {
+    console.error("Error connecting to MongoDB: ", error);
+  }
+}
+run().catch(console.dir);
+
 const server = app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
-
 module.exports = { app, server };
