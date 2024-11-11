@@ -10,17 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      mongo:
-        image: mongo:latest  # Use the latest official MongoDB Docker image
-        options: >
-          --health-cmd="mongo --quiet --eval 'db.adminCommand({ ping: 1 })' || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
-        ports:
-          - 27017:27017  # Expose MongoDB port to the workflow
-  
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -31,6 +20,12 @@ jobs:
         node-version: '18.x'
         cache: 'npm'
         cache-dependency-path: './backend/package-lock.json'
+
+    - name: Start MongoDB with mongo-action
+      uses: DigiPie/mongo-action@v2.0.1
+      with:
+        image_version: "latest"  # Optional, default is 'latest'
+        port: "27017"  # Optional, default is 27017
 
     - name: Install dependencies
       run: npm install
