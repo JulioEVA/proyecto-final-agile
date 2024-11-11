@@ -12,6 +12,10 @@ describe("Usuario Routes", () => {
   });
 
   describe("POST /api/usuarios", () => {
+    afterAll(() => {
+      mongoose.connection.close();
+      server.close();
+    });
     it("should create un usuario y devolver un 201", async () => {
       const newUser = { nombreUsuario: "Juan", contraseña: "chicharrón" };
       usuarioDao.crearUsuario.mockResolvedValue(newUser);
@@ -38,6 +42,10 @@ describe("Usuario Routes", () => {
   });
 
   describe("GET /api/usuarios", () => {
+    afterAll(() => {
+      mongoose.connection.close();
+      server.close();
+    });
     it("should return todos los usuarios con un 200", async () => {
       const usuarios = [{ nombre: "Juan" }, { nombre: "Maria" }];
       usuarioDao.obtenerUsuarios.mockResolvedValue(usuarios);
@@ -62,6 +70,10 @@ describe("Usuario Routes", () => {
   });
 
   describe("GET /api/usuarios/:id", () => {
+    afterAll(() => {
+      mongoose.connection.close();
+      server.close();
+    });
     it("should return un usuario por ID con un 200", async () => {
       const usuario = { id: "1", nombreUsuario: "Juan" };
       usuarioDao.obtenerUsuarioPorId.mockResolvedValue(usuario);
@@ -97,6 +109,10 @@ describe("Usuario Routes", () => {
   });
 
   describe("PUT /api/usuarios/:id", () => {
+    afterAll(() => {
+      mongoose.connection.close();
+      server.close();
+    });
     it("should return un usuario y devolver un 200", async () => {
       const usuarioActualizado = { id: "1", nombre: "Juan actualizado" };
       usuarioDao.actualizarUsuario.mockResolvedValue(usuarioActualizado);
@@ -138,6 +154,10 @@ describe("Usuario Routes", () => {
   });
 
   describe("DELETE /api/usuarios/:id", () => {
+    afterAll(() => {
+      mongoose.connection.close();
+      server.close();
+    });
     it("should return un usuario y devolver un 200", async () => {
       usuarioDao.eliminarUsuario.mockResolvedValue(true);
 
@@ -174,6 +194,10 @@ describe("Usuario Routes", () => {
   });
 
   describe("GET /api/usuarios/nombre/:nombreUsuario", () => {
+    afterAll(() => {
+      mongoose.connection.close();
+      server.close();
+    });
     it("should return un usuario por nombre con un 200", async () => {
       const usuario = { nombre: "Juan" };
       usuarioDao.obtenerUsuarioPorNombre.mockResolvedValue(usuario);
