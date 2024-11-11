@@ -12,7 +12,17 @@ const SorteoSchema = new mongoose.Schema({
       message: "Fecha de inicio no puede estar en el pasado",
     },
   },
-  fechaFin: { type: Date, required: true },
+  fechaFin: {
+    type: Date,
+    required: true,
+    validate: {
+      validator: function (value) {
+        return validateDate(value) && value > this.fechaInicio;
+      },
+      message:
+        "Fecha de fin no puede estar en el pasado, ni ser antes de la fecha de inicio",
+    },
+  },
   fechaSorteo: {
     type: Date,
     required: true,
