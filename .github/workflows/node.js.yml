@@ -13,12 +13,7 @@ jobs:
     services:
       mongo:
         image: mongo:latest  # Use the latest official MongoDB Docker image
-        options: >
-          --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })' || exit 1"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-          
+        options: "--health-cmd='mongo --eval \"db.runCommand({ ping: 1 })\" || exit 1' --health-interval=10s --health-timeout=5s --health-retries=5"
         ports:
           - 27017:27017  # Expose MongoDB port to the workflow
   
