@@ -1,97 +1,155 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario con Tres Columnas</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        
-        <h1 class="form-title">Crear Sorteos</h1>
-        
-        <form>
+      <h1 class="form-title">Crear Sorteos</h1>
 
-            <!-- Fila 1 campo -->
-            <div class="row full-width">
-                <div class="col-label">
-                    <label for="nombre">Nombre</label>
-                </div>
-                <div class="col-input-long">
-                    <input type="text" id="nombre" name="nombre">
-                </div>
-            </div>
+      <form id="myForm">
+        <!-- Fila 1 campo -->
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="col-input-long">
+            <input type="text" id="nombre" name="nombre" />
+          </div>
+        </div>
 
-            <!-- Fila 1 campo -->
-            <div class="row full-width">
-                <div class="col-label">
-                    <label for="descripcion">Descripción</label>
-                </div>
-                <div class="col-input-long">
-                    <input type="text" id="descripcion" name="descripcion">
-                </div>
-            </div>
+        <!-- Fila 1 campo -->
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="descripcion">Descripción</label>
+          </div>
+          <div class="col-input-long">
+            <input type="text" id="descripcion" name="descripcion" />
+          </div>
+        </div>
 
-            <!-- Fila 1 campo -->
-            <div class="row full-width">
-                <div class="col-label">
-                    <label for="fecha-sorteo">Fecha del sorteo</label>
-                </div>
-                <div class="col-input-long">
-                    <input type="date" id="fecha-sorteo" name="fecha-sorteo">
-                </div>
-            </div>
+        <!-- Fila 1 campo -->
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="fecha-sorteo">Fecha del sorteo</label>
+          </div>
+          <div class="col-input-long">
+            <input type="date" id="fecha-sorteo" name="fecha-sorteo" />
+          </div>
+        </div>
 
-            <!-- Fila 1 campo -->
-            <div class="row full-width">
-                <div class="col-label">
-                    <label for="precio-boleto">Precio de boleto</label>
-                </div>
-                <div class="col-input-long">
-                    <input type="number" id="precio-boleto" name="precio-boleto" min="0" max="2000">
-                </div>
-            </div>
+        <!-- Fila 1 campo -->
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="precio-boleto">Precio de boleto</label>
+          </div>
+          <div class="col-input-long">
+            <input
+              type="number"
+              id="precio-boleto"
+              name="precio-boleto"
+              min="0"
+              max="2000"
+            />
+          </div>
+        </div>
 
-            <!-- Fila 2 campos -->
-            <div class="row">
-                <div class="col-label">
-                    <label for="fecha-venta-inicial">Fecha de venta</label>
-                </div>
-                <div class="col-input">
-                    <input type="date" id="fecha-venta-inicial" name="fecha-venta-inicial">
-                </div>
-                <div class="col-input">
-                    <input type="date" id="fecha-venta-final" name="fecha-venta-final">
-                </div>
-            </div>
+        <!-- Fila 2 campos -->
+        <div class="row">
+          <div class="col-label">
+            <label for="fecha-venta-inicial">Fecha de venta</label>
+          </div>
+          <div class="col-input">
+            <input
+              type="date"
+              id="fecha-venta-inicial"
+              name="fecha-venta-inicial"
+            />
+          </div>
+          <div class="col-input">
+            <input
+              type="date"
+              id="fecha-venta-final"
+              name="fecha-venta-final"
+            />
+          </div>
+        </div>
 
-            <!-- Fila 2 campos -->
-            <div class="row">
-                <div class="col-label">
-                    <label for="rango-numeros">Fecha de venta</label>
-                </div>
-                <div class="col-input">
-                    <input type="number" id="rango-numeros-inicial" name="rango-numeros-inicial">
-                </div>
-                <div class="col-input">
-                    <input type="number" id="rango-numeros-final" name="rango-numeros-final">
-                </div>
-            </div>
+        <!-- Fila 2 campos -->
+        <div class="row">
+          <div class="col-label">
+            <label for="rango-numeros">Rango de números</label>
+          </div>
+          <div class="col-input">
+            <input
+              type="number"
+              id="rango-numeros-inicial"
+              name="rango-numeros-inicial"
+            />
+          </div>
+          <div class="col-input">
+            <input
+              type="number"
+              id="rango-numeros-final"
+              name="rango-numeros-final"
+            />
+          </div>
+        </div>
 
-            <!-- Botones -->
-            <div class="row">
-                <div class="col-label">
-                    <button type="submit" class="short-button">Cancelar</button>
-                </div>
-                <div class="col-input">
-                    <button type="submit" class="large-button">Agregar imagen</button>
-                </div>
-                <div class="col-input">
-                    <button type="submit" class="large-button">Guardar sorteo</button>
-                </div>
-            </div>
-        </form>
+        <!-- Botones -->
+        <div class="row">
+          <div class="col-label">
+            <button type="submit" class="short-button">Cancelar</button>
+          </div>
+          <div class="col-input">
+            <button type="submit" class="large-button">Agregar imagen</button>
+          </div>
+          <div class="col-input">
+            <button type="submit" class="large-button">Guardar sorteo</button>
+          </div>
+        </div>
+      </form>
     </div>
-</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const form = document.getElementById("myForm");
+
+      form.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        const formData = {
+          nombre: document.getElementById("nombre").value,
+          descripcion: document.getElementById("descripcion").value,
+          fecha_sorteo: document.getElementById("fecha-sorteo").value,
+          precio_boleto: parseFloat(
+            document.getElementById("precio-boleto").value
+          ),
+          fecha_venta_inicial: document.getElementById("fecha-venta-inicial")
+            .value,
+          fecha_venta_final: document.getElementById("fecha-venta-final").value,
+          rango_numeros_inicial: parseInt(
+            document.getElementById("rango-numeros-inicial").value,
+            10
+          ),
+          rango_numeros_final: parseInt(
+            document.getElementById("rango-numeros-final").value,
+            10
+          ),
+        };
+
+        try {
+          const response = await axios.post("http://localhost:3000/api/sorteos/", formData);
+
+          console.log("Datos enviados con éxito:", response.data);
+        } catch (error) {
+          console.error("Error al enviar los datos:", error);
+        }
+      });
+    </script>
+  </body>
 </html>
