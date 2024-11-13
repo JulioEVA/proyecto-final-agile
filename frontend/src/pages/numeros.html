@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Números Disponibles</title>
     <link rel="stylesheet" href="styles-numeros.css" />
+    <script src="../scripts/listar-numeros.js" type="module"></script>
   </head>
   <body>
     <header>
-      <img src="../images/image.png" alt="Logo" class="logo" />
-      <h1>Nombre del Sorteo</h1>
+      <img src="../assets/logo-loader.gif" id="logo" alt="Logo" class="logo" />
+      <h1 id="nombreSorteo">Nombre del Sorteo</h1>
     </header>
     <div class="container">
       <div class="main">
         <div class="table-wrapper">
-          <table>
+          <table id="listaNumeros">
             <thead>
               <tr>
                 <th>Número</th>
@@ -23,22 +24,7 @@
                 <th>Apartar</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- Filas dinámicas de números -->
-              <tr>
-                <td>1</td>
-                <td>$10</td>
-                <td>Libre</td>
-                <td><button class="btn-apartar">Apartar</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>$20</td>
-                <td>Apartado</td>
-                <td><button class="btn-apartar" disabled>Apartar</button></td>
-              </tr>
-              <!-- Más filas aquí -->
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -48,36 +34,14 @@
         <div class="input-group">
           <input
             type="number"
-            id="numero-min"
-            name="numero-min"
-            placeholder="Mínimo"
-          />
-          <input
-            type="number"
-            id="numero-max"
-            name="numero-max"
-            placeholder="Máximo"
+            min="1"
+            id="numeroFiltro"
+            name="numeroFiltro"
+            placeholder="Número"
           />
         </div>
-
-        <label for="filtro-precio">Por Precio</label>
-        <div class="input-group">
-          <input
-            type="number"
-            id="precio-min"
-            name="precio-min"
-            placeholder="Mínimo"
-          />
-          <input
-            type="number"
-            id="precio-max"
-            name="precio-max"
-            placeholder="Máximo"
-          />
-        </div>
-
         <br />
-        <a href="index.html" class="boton">Volver</a>
+        <a href="sorteos.html" class="boton">Volver</a>
       </div>
     </div>
   </body>
