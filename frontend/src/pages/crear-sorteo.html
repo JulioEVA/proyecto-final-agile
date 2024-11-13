@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear Sorteo</title>
+    <script src="../scripts/crear-sorteo.js" type="module"></script>
     <link rel="stylesheet" href="styles-crear-sorteo.css" />
   </head>
   <body>
     <header>
       <h1>Crear Sorteo</h1>
-  </header>
+    </header>
     <div class="container">
-      <form id="crearSorteo">
+      <h1 class="form-title">Crear Sorteo</h1>
+      <form id="crearSorteoForm">
         <div class="row full-width">
           <div class="col-label">
             <label for="nombre">Nombre</label>
@@ -109,10 +111,16 @@
           <div class="col-input">
             <button type="submit" class="large-button">Guardar sorteo</button>
           </div>
+
+          <div class="col-input">
+            <button id="testFill" type="button" class="short-button">
+              Llenar datos de prueba
+            </button>
+          </div>
         </div>
       </form>
 
-      <a href="#" class="link">Consultar Sorteos</a>
+      <a href="sorteos.html" class="link">Consultar Sorteos</a>
     </div>
   </body>
 </html>

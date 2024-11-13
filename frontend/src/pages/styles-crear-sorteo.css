@@ -73,3 +73,9 @@ header {
 .large-button:hover {
   background-color: #30B9E4;
 }
+
+.toasted {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
