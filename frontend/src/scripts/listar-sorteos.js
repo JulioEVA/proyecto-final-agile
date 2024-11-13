@@ -2,49 +2,60 @@ import API from '../components/API.js';
 
 const tablaSorteos = document.querySelector('#listaSorteos tbody');
 
-window.onload = () => {
-  try {
-    API.getSorteos()
-      .then((response) => {
-        const sorteos = response.data;
-        if (sorteos.length === 0) {
-          const tr = document.createElement('tr');
-          const td = document.createElement('td');
-          td.colSpan = 4;
-          td.textContent = 'No hay sorteos disponibles';
-          tr.appendChild(td);
-          tablaSorteos.appendChild(tr);
-        }
-        sorteos.forEach((sorteo) => {
-          const tr = document.createElement('tr');
+try {
+  const loadingMessage = document.createElement('tr');
+  const loadingTd = document.createElement('td');
+  loadingTd.colSpan = 4;
+  loadingTd.textContent = 'Cargando sorteos...';
+  loadingMessage.appendChild(loadingTd);
+  tablaSorteos.appendChild(loadingMessage);
 
-          const tdNombre = document.createElement('td');
-          tdNombre.classList.add('nombre');
-          tdNombre.textContent = sorteo.nombre;
-          tr.appendChild(tdNombre);
+  API.getSorteos()
+    .then((response) => {
+      const sorteos = response.data;
+      if (sorteos.length === 0) {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 4;
+        td.textContent = 'No hay sorteos disponibles';
+        tr.appendChild(td);
+        tablaSorteos.appendChild(tr);
+      }
+      sorteos.forEach((sorteo) => {
+        const tr = document.createElement('tr');
 
-          const tdDescripcion = document.createElement('td');
-          tdDescripcion.classList.add('descripcion');
-          tdDescripcion.textContent =
-            sorteo.descripcion || 'No description available';
-          tr.appendChild(tdDescripcion);
+        const tdNombre = document.createElement('td');
+        tdNombre.classList.add('nombre');
+        tdNombre.textContent = sorteo.nombre;
+        tr.appendChild(tdNombre);
 
-          const tdFecha = document.createElement('td');
-          tdFecha.textContent = sorteo.fechaSorteo.split('T')[0];
-          tr.appendChild(tdFecha);
+        const tdDescripcion = document.createElement('td');
+        tdDescripcion.classList.add('descripcion');
+        tdDescripcion.textContent =
+          sorteo.descripcion || 'No description available';
+        tr.appendChild(tdDescripcion);
 
-          const tdButton = document.createElement('td');
-          const buttonDetalle = document.createElement('button');
-          buttonDetalle.classList.add('btn-detalle');
-          buttonDetalle.textContent = 'Ver Números';
-          tdButton.appendChild(buttonDetalle);
-          tr.appendChild(tdButton);
+        const tdFecha = document.createElement('td');
+        tdFecha.textContent = sorteo.fechaSorteo.split('T')[0];
+        tr.appendChild(tdFecha);
 
-          tablaSorteos.appendChild(tr);
+        const tdButton = document.createElement('td');
+        const buttonDetalle = document.createElement('button');
+        buttonDetalle.classList.add('btn-detalle');
+        buttonDetalle.textContent = 'Ver Números';
+        buttonDetalle.addEventListener('click', () => {
+          window.location.href = `../pages/numeros.html?id=${sorteo._id}&nombre=${sorteo.nombre}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}`;
         });
-      })
-      .catch((error) => {
-        console.error(error);
+        tdButton.appendChild(buttonDetalle);
+        tr.appendChild(tdButton);
+
+        tablaSorteos.appendChild(tr);
       });
-  } catch (error) {}
-};
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+    .finally(() => {
+      loadingMessage.remove();
+    });
+} catch (error) {}
