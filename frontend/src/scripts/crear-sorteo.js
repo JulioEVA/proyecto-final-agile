@@ -1,4 +1,4 @@
-import Toasted from 'toastedjs';
+import Toasted from 'toastedjs/dist/toasted.min.js';
 import '../../node_modules/toastedjs/dist/toasted.min.css';
 import API from '../components/API.js';
 import {

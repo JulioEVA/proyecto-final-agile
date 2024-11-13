@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^5.4.10"
   },
   "dependencies": {
+    "@vitejs/plugin-legacy": "^5.4.3",
     "axios": "^1.7.7",
     "toastedjs": "^0.0.2"
   }

@@ -11,10 +11,13 @@ const precioNumero = urlParams.get('precioNumero');
 
 document.querySelector('#nombreSorteo').textContent = nombre;
 
-try {
-  const sorteo = await API.getSorteo(id);
-  document.querySelector('#logo').src = sorteo.data.imagenPromocional;
-} catch (error) {}
+API.getSorteo(id)
+  .then((sorteo) => {
+    document.querySelector('#logo').src = sorteo.data.imagenPromocional;
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 for (let i = 1; i <= rangoNumeros; i++) {
   const tr = document.createElement('tr');
