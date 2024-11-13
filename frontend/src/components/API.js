@@ -12,4 +12,12 @@ API.createSorteo = async (sorteo) => {
   }
 };
 
+API.getSorteos = async () => {
+  try {
+    return await API.get('/sorteos');
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default API;
