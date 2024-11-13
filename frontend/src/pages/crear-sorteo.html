@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear Sorteo</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles-crear-sorteo.css" />
   </head>
   <body>
     <div class="container">
       <h1 class="form-title">Crear Sorteo</h1>
-      <form action="/crear-sorteo" method="POST">
+      <form id="crearSorteo">
         <div class="row full-width">
           <div class="col-label">
             <label for="nombre">Nombre</label>
@@ -92,7 +92,8 @@
           </div>
           <div class="col-input-long">
             <input
-              type="file"
+              type="url"
+              placeholder="https://www.example.com"
               id="imagenPromocional"
               name="imagenPromocional"
             />
@@ -109,9 +110,7 @@
         </div>
       </form>
 
-      <a href="numeros.html" class="boton" style="margin-top: 20px"
-        >Consultar Sorteos</a
-      >
+      <a href="#" class="link">Consultar Sorteos</a>
     </div>
   </body>
 </html>
