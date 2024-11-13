@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números Disponibles</title>
+    <link rel="stylesheet" href="styles-numeros.css" />
+  </head>
+  <body>
+    <header>
+      <img src="image.png" alt="Logo" class="logo" />
+      <h1>Nombre del Sorteo</h1>
+    </header>
+    <div class="container">
+      <div class="main">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Número</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Apartar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filas dinámicas de números -->
+              <tr>
+                <td>1</td>
+                <td>$10</td>
+                <td>Libre</td>
+                <td><button class="btn-apartar">Apartar</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>$20</td>
+                <td>Apartado</td>
+                <td><button class="btn-apartar" disabled>Apartar</button></td>
+              </tr>
+              <!-- Más filas aquí -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h2>Filtrar Números</h2>
+        <label for="filtro-numero">Por Número</label>
+        <div class="input-group">
+          <input
+            type="number"
+            id="numero-min"
+            name="numero-min"
+            placeholder="Mínimo"
+          />
+          <input
+            type="number"
+            id="numero-max"
+            name="numero-max"
+            placeholder="Máximo"
+          />
+        </div>
+
+        <label for="filtro-precio">Por Precio</label>
+        <div class="input-group">
+          <input
+            type="number"
+            id="precio-min"
+            name="precio-min"
+            placeholder="Mínimo"
+          />
+          <input
+            type="number"
+            id="precio-max"
+            name="precio-max"
+            placeholder="Máximo"
+          />
+        </div>
+
+        <br />
+        <a href="index.html" class="boton">Volver</a>
+      </div>
+    </div>
+  </body>
+</html>
