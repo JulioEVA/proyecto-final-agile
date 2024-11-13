@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const NumeroSchema = new mongoose.Schema({
   numero: {
     type: Number,
-    unique: true,
     required: true,
   },
   estado: {
