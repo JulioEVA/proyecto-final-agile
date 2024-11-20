@@ -4,12 +4,33 @@ export const validateDates = (sorteo) => {
   const fechaInicio = new Date(sorteo.fechaInicio);
   const fechaFin = new Date(sorteo.fechaFin);
 
-  return (
-    fechaSorteo > fechaActual &&
-    fechaInicio < fechaFin &&
-    fechaInicio < fechaSorteo &&
-    fechaSorteo > fechaFin
-  );
+  if (fechaSorteo <= fechaActual) {
+    return {
+      isValid: false,
+      message: 'La fecha del sorteo debe ser posterior a la fecha actual.',
+    };
+  }
+  if (fechaInicio >= fechaFin) {
+    return {
+      isValid: false,
+      message: 'La fecha de inicio debe ser anterior a la fecha de fin.',
+    };
+  }
+  if (fechaInicio >= fechaSorteo) {
+    return {
+      isValid: false,
+      message: 'La fecha de inicio debe ser anterior a la fecha del sorteo.',
+    };
+  }
+  if (fechaSorteo <= fechaFin) {
+    return {
+      isValid: false,
+      message: 'La fecha del sorteo debe ser posterior a la fecha de fin.',
+    };
+  }
+  return {
+    isValid: true,
+  };
 };
 
 export const validateNumbers = (sorteo) => {
