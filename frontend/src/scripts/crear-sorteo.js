@@ -11,7 +11,7 @@ const fillForm = document.getElementById('testFill');
 
 const toast = new Toasted({
   position: 'top-center',
-  duration: 3000,
+  duration: 3500,
   theme: 'alive',
 });
 
