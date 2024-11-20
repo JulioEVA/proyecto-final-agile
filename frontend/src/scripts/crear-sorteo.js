@@ -19,9 +19,10 @@ form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const formDataObject = Object.fromEntries(formData);
+  const datesValidation = validateDates(formDataObject);
 
-  if (!validateDates(formDataObject)) {
-    toast.show('Las fechas no son válidas');
+  if (!datesValidation) {
+    toast.show(datesValidation.message);
     return;
   }
 
