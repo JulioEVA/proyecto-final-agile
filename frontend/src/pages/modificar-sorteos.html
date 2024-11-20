@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar Sorteo</title>
+    <script src="./scripts/crear-sorteo.js" type="module"></script>
+    <link rel="stylesheet" href="styles-modificar-sorteos.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Modificar Sorteo</h1>
+    </header>
+    <div class="container">
+      <h1 class="form-title">Modificar Sorteo</h1>
+      <form id="modificarSorteoForm">
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="col-input-long">
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              maxlength="100"
+            />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="descripcion">Descripción</label>
+          </div>
+          <div class="col-input-long">
+            <input
+              type="text"
+              id="descripcion"
+              name="descripcion"
+              maxlength="100"
+            />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="fechaInicio">Fecha de Inicio</label>
+          </div>
+          <div class="col-input">
+            <input type="date" id="fechaInicio" name="fechaInicio" required />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="fechaFin">Fecha de Fin</label>
+          </div>
+          <div class="col-input">
+            <input type="date" id="fechaFin" name="fechaFin" required />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="fechaSorteo">Fecha del Sorteo</label>
+          </div>
+          <div class="col-input-long">
+            <input type="date" id="fechaSorteo" name="fechaSorteo" required />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="rangoNumeros">Rango de Números</label>
+          </div>
+          <div class="col-input">
+            <input
+              type="number"
+              id="rangoNumeros"
+              name="rangoNumeros"
+              min="1"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="precioNumero">Precio por Número</label>
+          </div>
+          <div class="col-input-long">
+            <input
+              type="number"
+              id="precioNumero"
+              name="precioNumero"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row full-width">
+          <div class="col-label">
+            <label for="imagenPromocional">Imagen Promocional</label>
+          </div>
+          <div class="col-input-long">
+            <input
+              type="url"
+              placeholder="https://www.example.com"
+              id="imagenPromocional"
+              name="imagenPromocional"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-label">
+            <button type="reset" class="short-button">Cancelar</button>
+          </div>
+          <div class="col-input">
+            <button type="submit" class="large-button">Modificar sorteo</button>
+          </div>
+
+          <div class="col-input">
+            <button id="testFill" type="button" class="short-button">
+              Llenar datos de prueba
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <a href="./sorteos.html" class="link btn">Volver</a>
+    </div>
+  </body>
+</html>
