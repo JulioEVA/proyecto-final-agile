@@ -20,14 +20,15 @@ form.addEventListener('submit', async (event) => {
   const formData = new FormData(form);
   const formDataObject = Object.fromEntries(formData);
   const datesValidation = validateDates(formDataObject);
+  const numbersValidation = validateNumbers(formDataObject);
 
   if (!datesValidation?.isValid) {
     toast.show(datesValidation.message);
     return;
   }
 
-  if (!validateNumbers(formDataObject)) {
-    toast.show('Los números no son válidos');
+  if (!numbersValidation?.isValid) {
+    toast.show(numbersValidation.message);
     return;
   }
 
@@ -48,9 +49,7 @@ form.addEventListener('submit', async (event) => {
     toast.show('Sorteo creado correctamente');
     //form.reset();
   } catch (error) {
-    toast.show(
-      'Error al crear sorteo: ' + error.response.data.error.errorResponse.errmsg
-    );
+    toast.show('Error al crear sorteo: ' + errorHandler(error));
   }
 });
 
