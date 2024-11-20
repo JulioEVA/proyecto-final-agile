@@ -4,6 +4,7 @@ import API from '../components/API.js';
 import {
   validateDates,
   validateNumbers,
+  errorHandler,
 } from '../components/SorteoFormValidator.js';
 
 const form = document.getElementById('crearSorteoForm');
