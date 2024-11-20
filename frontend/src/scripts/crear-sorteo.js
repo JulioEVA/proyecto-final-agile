@@ -21,7 +21,7 @@ form.addEventListener('submit', async (event) => {
   const formDataObject = Object.fromEntries(formData);
   const datesValidation = validateDates(formDataObject);
 
-  if (!datesValidation) {
+  if (!datesValidation?.isValid) {
     toast.show(datesValidation.message);
     return;
   }
