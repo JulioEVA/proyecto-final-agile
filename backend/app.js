@@ -37,9 +37,8 @@ app.use("/api/sorteos", sorteoRoutes);
 app.use("/api/participantes", participanteRoutes);
 app.use("/api/pagos", pagoRoutes);
 app.use("/api/numeros", numeroRoutes);
-
 app.get("/", (req, res) => {
-  res.json({
+  res.send({
     message: "Welcome to the Sorteos API!",
     description:
       "This API allows you to create, manage, and participate in raffles (sorteos). You can register users, manage raffle entries, process payments, and track raffle statuses in real-time.",
@@ -52,6 +51,9 @@ app.get("/", (req, res) => {
     },
     version: "1.0.0",
   });
+});
+app.get("*", (req, res) => {
+  res.status(404).send({ message: "Route not found" });
 });
 
 app.use(errorHandler);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números Disponibles</title>
+    <link rel="stylesheet" href="styles-numeros.css" />
+    <script src="../scripts/listar-numeros.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/logo-loader.gif" id="logo" alt="Logo" class="logo" />
+      <h1 id="nombreSorteo">Nombre del Sorteo</h1>
+    </header>
+    <div class="container">
+      <div class="main">
+        <div class="table-wrapper">
+          <table id="listaNumeros">
+            <thead>
+              <tr>
+                <th>Número</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Apartar</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h2>Filtrar Números</h2>
+        <label for="filtro-numero">Por Número</label>
+        <div class="input-group">
+          <input
+            type="number"
+            min="1"
+            id="numeroFiltro"
+            name="numeroFiltro"
+            placeholder="Número"
+          />
+        </div>
+        <br />
+        <a href="sorteos.html" class="boton">Volver</a>
+      </div>
+    </div>
+  </body>
+</html>

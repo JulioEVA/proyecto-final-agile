@@ -2,8 +2,7 @@
   "name": "backend",
   "module": "app.js",
   "scripts": {
-    "test": "jest",
-    "start": "node app.js"
+    "test": "jest --runInBand"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
