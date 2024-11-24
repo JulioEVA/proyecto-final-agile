@@ -1,6 +1,6 @@
 const request = require("supertest");
 const mongoose = require("mongoose");
-const { app, server } = require("../app");
+const { app, server } = require("../app.test");
 const pagoController = require("../controllers/pagoController");
 
 jest.mock("../controllers/pagoController");
