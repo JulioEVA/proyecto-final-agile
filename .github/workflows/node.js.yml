@@ -27,12 +27,15 @@ jobs:
     - name: Start MongoDB with mongo-action
       uses: DigiPie/mongo-action@v2.0.1
       with:
-        image_version: "latest"  # Optional, default is 'latest'
-        port: "27017"  # Optional, default is 27017
+        image_version: "latest"
+        port: "27017"
 
     - name: Install dependencies
       run: npm install
       working-directory: ./backend
+
+    - name: Set environment variables
+      run: echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
 
     - name: Run tests
       run: npm test
