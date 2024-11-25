@@ -28,4 +28,12 @@ API.getSorteo = async (id) => {
   }
 };
 
+API.updateSorteo = async (id, sorteo) => {
+  try {
+    return await API.put(`/sorteos/${id}`, sorteo);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default API;

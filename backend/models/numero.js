@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const NumeroSchema = new mongoose.Schema({
-  numero: { type: Number, required: true, unique: true },
+  numero: {
+    type: Number,
+    required: true,
+  },
   estado: {
     type: String,
     enum: ["libre", "apartado", "vendido"],
@@ -10,6 +13,11 @@ const NumeroSchema = new mongoose.Schema({
   participanteId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Participante",
+    default: null,
+  },
+  sorteoId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Sorteo",
     default: null,
   },
   fechaApartado: { type: Date },

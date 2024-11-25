@@ -1,5 +1,6 @@
 import Toasted from 'toastedjs/dist/toasted.min.js';
 import '../../node_modules/toastedjs/dist/toasted.min.css';
+import 'material-icons/iconfont/material-icons.css';
 import API from '../components/API.js';
 import {
   validateDates,

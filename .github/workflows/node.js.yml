@@ -1,36 +1,39 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
 name: Node.js CI
 
 on:
   push:
-    branches: [ "deployment" ]
+    branches: ['deployment']
   pull_request:
-    branches: [ "deployment" ]
+    branches: ['deployment']
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18.x'
-        cache: 'npm'
-        cache-dependency-path: './backend/package-lock.json'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+          cache-dependency-path: './backend/package-lock.json'
 
-    - name: Start MongoDB with mongo-action
-      uses: DigiPie/mongo-action@v2.0.1
-      with:
-        image_version: "latest"  # Optional, default is 'latest'
-        port: "27017"  # Optional, default is 27017
+      - name: Start MongoDB with mongo-action
+        uses: DigiPie/mongo-action@v2.0.1
+        with:
+          image_version: 'latest'
+          port: '27017'
 
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./backend
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./backend
 
-    - name: Run tests
-      run: npm test
-      working-directory: ./backend
+      - name: Run tests
+        run: npm test
+        working-directory: ./backend
