@@ -7,7 +7,7 @@ body {
 
 header {
   width: 100%;
-  background-color: #0F91DB;
+  background-color: #0f91db;
   color: white;
   text-align: center;
   padding: 20px 0;
@@ -38,18 +38,21 @@ header {
   padding-right: 20px;
 }
 
-.col-input, .col-input-long {
+.col-input,
+.col-input-long {
   flex: 3;
 }
 
-.col-input input, .col-input-long input {
+.col-input input,
+.col-input-long input {
   width: 95%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.short-button, .large-button {
+.short-button,
+.large-button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -57,21 +60,21 @@ header {
 }
 
 .short-button {
-  background-color: #0F91DB;
+  background-color: #0f91db;
   color: white;
 }
 
 .short-button:hover {
-  background-color: #30B9E4;
+  background-color: #30b9e4;
 }
 
 .large-button {
-  background-color: #0F91DB;
+  background-color: #0f91db;
   color: white;
 }
 
 .large-button:hover {
-  background-color: #30B9E4;
+  background-color: #30b9e4;
 }
 
 .toasted {
@@ -84,7 +87,7 @@ header {
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #0F91DB;
+  background-color: #0f91db;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -93,5 +96,11 @@ header {
 }
 
 .btn:hover {
-  background-color: #30B9E4;
+  background-color: #30b9e4;
+}
+
+#submitButton[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }

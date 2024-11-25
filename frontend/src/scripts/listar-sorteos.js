@@ -1,5 +1,7 @@
 import API from '../components/API.js';
 
+import 'material-icons/iconfont/material-icons.css';
+
 const tablaSorteos = document.querySelector('#listaSorteos tbody');
 
 try {
@@ -47,6 +49,17 @@ try {
           window.location.href = `../pages/numeros.html?id=${sorteo._id}&nombre=${sorteo.nombre}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}`;
         });
         tdButton.appendChild(buttonDetalle);
+
+        const buttonModificar = document.createElement('button');
+        buttonModificar.classList.add('material-icons');
+        buttonModificar.classList.add('btn-modificar');
+        buttonModificar.textContent = 'edit';
+        buttonModificar.addEventListener('click', () => {
+          window.location.href = `../pages/modificar-sorteo.html?nombre=${sorteo.nombre}&descripcion=${sorteo.descripcion}&fechaInicio=${sorteo.fechaInicio}&fechaFin=${sorteo.fechaFin}&fechaSorteo=${sorteo.fechaSorteo}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}&imagenPromocional=${sorteo.imagenPromocional}&id=${sorteo._id}`;
+        });
+        tdButton.appendChild(buttonModificar);
+
+        tdButton.classList.add('actions-container');
         tr.appendChild(tdButton);
 
         tablaSorteos.appendChild(tr);
