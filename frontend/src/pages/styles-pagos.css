@@ -1,0 +1,158 @@
+/* Reset de márgenes y paddings */
+
+  
+  /* Estilos generales */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  header {
+    width: 100%;
+    background-color: #0f91db;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .boletos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #0f91db;
+    color: white;
+  }
+  
+  td {
+    background-color: white;
+  }
+  
+  .pagado {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .pendiente {
+    color: red;
+    font-weight: bold;
+  }
+  
+  button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #0f91db;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .acciones {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .acciones button {
+    width: 48%;
+  }
+  
+  /* Modal de Registro de Pago */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+  }
+  
+  .modal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .modal label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .modal input, .modal select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn-registrar-pago {
+    width: 100%;
+    background-color: #0f91db;
+  }
+  
+  .btn-registrar-pago:hover {
+    background-color: #30b9e4;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .boton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #0f91db;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton:hover {
+    background-color: #30b9e4;
+  }
