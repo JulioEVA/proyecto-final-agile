@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { readdirSync } from 'fs';
+import legacy from '@vitejs/plugin-legacy';
+
 
 // Función para escanear dinámicamente archivos HTML en un directorio
 function getPages(directory) {
