@@ -1,6 +1,21 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import legacy from '@vitejs/plugin-legacy';
+import { readdirSync } from 'fs';
+
+// Función para escanear dinámicamente archivos HTML en un directorio
+function getPages(directory) {
+  const entries = {};
+  const files = readdirSync(directory, { withFileTypes: true });
+
+  files.forEach((file) => {
+    if (file.isFile() && file.name.endsWith('.html')) {
+      const name = file.name.replace('.html', ''); // Elimina la extensión .html
+      entries[name] = resolve(directory, file.name); // Crea la entrada
+    }
+  });
+
+  return entries;
+}
 
 export default defineConfig({
   plugins: [
@@ -8,14 +23,13 @@ export default defineConfig({
       targets: ['defaults', 'not IE 11'],
     }),
   ],
-  root: 'src',
+  root: 'src', 
   build: {
-    outDir: '../dist',
+    outDir: '../dist', 
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        numeros: resolve(__dirname, 'src/pages/numeros.html'),
-        sorteos: resolve(__dirname, 'src/pages/sorteos.html'),
+        ...getPages(resolve(__dirname, 'src/pages')), // Agrega dinámicamente páginas de src/pages
       },
     },
   },
