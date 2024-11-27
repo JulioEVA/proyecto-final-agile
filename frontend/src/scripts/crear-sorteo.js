@@ -56,8 +56,12 @@ form.addEventListener('submit', async (event) => {
 });
 
 fillForm.addEventListener('click', async (event) => {
+  function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 0.1)) + min;
+  }
+
   event.preventDefault();
-  form.nombre.value = 'Sorteo de prueba';
+  form.nombre.value = 'Sorteo de prueba' + generateRandomNumber(1, 999999);
   form.descripcion.value = 'Sorteo de prueba';
   form.fechaInicio.value = '2025-06-01';
   form.fechaFin.value = '2025-06-30';
