@@ -28,13 +28,13 @@ try {
 
         const tdNombre = document.createElement('td');
         tdNombre.classList.add('nombre');
-        tdNombre.textContent = sorteo.nombre;
+        tdNombre.textContent = decodeInput(sorteo.nombre);
         tr.appendChild(tdNombre);
 
         const tdDescripcion = document.createElement('td');
         tdDescripcion.classList.add('descripcion');
         tdDescripcion.textContent =
-          sorteo.descripcion || 'No description available';
+          decodeInput(sorteo.descripcion) || 'No description available';
         tr.appendChild(tdDescripcion);
 
         const tdFecha = document.createElement('td');

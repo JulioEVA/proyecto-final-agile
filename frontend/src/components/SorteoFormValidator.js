@@ -77,3 +77,16 @@ export const errorHandler = (error) => {
 
   return 'Error al crear sorteo';
 };
+
+/**
+ * Sanitize input for API requests
+ * @param {*} input The input to sanitize
+ * @returns {string} The sanitized input
+ */
+export const sanitizeInput = (input) => {
+  return encodeURIComponent(input);
+};
+
+export const decodeInput = (input) => {
+  return decodeURIComponent(input);
+};

@@ -6,6 +6,7 @@ import {
   validateDates,
   validateNumbers,
   errorHandler,
+  sanitizeInput,
 } from '../components/SorteoFormValidator.js';
 
 const form = document.getElementById('crearSorteoForm');
@@ -37,8 +38,8 @@ form.addEventListener('submit', async (event) => {
   toast.show('Creando sorteo...');
 
   const sorteo = {
-    nombre: formData.get('nombre'),
-    descripcion: formData.get('descripcion'),
+    nombre: sanitizeInput(formData.get('nombre')),
+    descripcion: sanitizeInput(formData.get('descripcion')),
     fechaInicio: new Date(formData.get('fechaInicio')),
     fechaFin: new Date(formData.get('fechaFin')),
     fechaSorteo: new Date(formData.get('fechaSorteo')),
