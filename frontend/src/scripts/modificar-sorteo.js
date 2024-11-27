@@ -12,7 +12,7 @@ const form = document.getElementById('modificarSorteoForm');
 const fillForm = document.getElementById('testFill');
 const submitButton = document.getElementById('submitButton');
 submitButton.disabled = true;
-submitButton.title = 'No hay cambios en el formulario';
+submitButton.title = 'No hay cambios en el sorteo';
 
 let urlParams,
   nombre,
@@ -73,9 +73,10 @@ try {
 function fillFormFields() {
   form.nombre.value = nombre;
   form.descripcion.value = descripcion;
-  form.fechaInicio.value = new Date(fechaInicio).toISOString().split('T')[0];
-  form.fechaFin.value = new Date(fechaFin).toISOString().split('T')[0];
-  form.fechaSorteo.value = new Date(fechaSorteo).toISOString().split('T')[0];
+
+  form.fechaInicio.value = fechaInicio.split('T')[0];
+  form.fechaFin.value = fechaFin.split('T')[0];
+  form.fechaSorteo.value = fechaSorteo.split('T')[0];
   form.rangoNumeros.value = rangoNumeros;
   form.precioNumero.value = precioNumero;
   form.imagenPromocional.value = imagenPromocional;
