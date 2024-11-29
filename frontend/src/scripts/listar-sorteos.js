@@ -1,6 +1,7 @@
 import API from '../components/API.js';
 
 import 'material-icons/iconfont/material-icons.css';
+import { decodeInput } from '../components/SorteoFormValidator.js';
 
 const tablaSorteos = document.querySelector('#listaSorteos tbody');
 
