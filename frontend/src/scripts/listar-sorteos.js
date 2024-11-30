@@ -15,9 +15,8 @@ try {
 
   const toast = new Toasted({
     position: 'top-center',
-    duration: 1500,
+    duration: 1000,
     className: 'alive',
-    theme: 'alive',
   });
 
   API.getSorteos()
