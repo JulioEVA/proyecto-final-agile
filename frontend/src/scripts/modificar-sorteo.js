@@ -12,8 +12,11 @@ import {
 const form = document.getElementById('modificarSorteoForm');
 const fillForm = document.getElementById('testFill');
 const submitButton = document.getElementById('submitButton');
-submitButton.disabled = true;
-submitButton.title = 'No hay cambios en el sorteo';
+
+if (submitButton) {
+  submitButton.disabled = true;
+  submitButton.title = 'No hay cambios en el sorteo';
+}
 
 let urlParams,
   nombre,
@@ -127,7 +130,7 @@ form.addEventListener('submit', async (event) => {
   };
   try {
     await API.updateSorteo(id, sorteo);
-    toast.show('Sorteo actualizado exitosamente, redigiriendo...');
+    toast.success('Sorteo actualizado exitosamente, redigiriendo...');
     setTimeout(() => {
       window.location.href = './sorteos.html';
     }, 3000);
