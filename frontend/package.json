@@ -15,6 +15,7 @@
     "@vitejs/plugin-legacy": "^5.4.3",
     "axios": "^1.7.7",
     "material-icons": "^1.13.12",
+    "navigo": "^8.11.1",
     "toastedjs": "^0.0.2"
   }
 }
