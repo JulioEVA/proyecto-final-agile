@@ -12,6 +12,7 @@ function getPages(directory) {
     if (file.isFile() && file.name.endsWith('.html')) {
       const name = file.name.replace('.html', ''); // Elimina la extensión .html
       entries[name] = resolve(directory, file.name); // Crea la entrada
+      console.log(`Página agregada: ${name}`);
     }
   });
 
@@ -27,6 +28,7 @@ export default defineConfig({
   root: 'src',
   build: {
     outDir: '../dist',
+    publicDir: 'public',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),

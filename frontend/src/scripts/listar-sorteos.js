@@ -2,7 +2,6 @@ import API from '../components/API.js';
 import Toasted from 'toastedjs/dist/toasted.min.js';
 import 'material-icons/iconfont/material-icons.css';
 import { decodeInput } from '../components/SorteoFormValidator.js';
-import '../components/ConfirmationPopup/ConfirmationPopup.js';
 
 const tablaSorteos = document.querySelector('#listaSorteos tbody');
 
