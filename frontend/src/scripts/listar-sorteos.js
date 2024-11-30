@@ -4,6 +4,11 @@ import 'material-icons/iconfont/material-icons.css';
 import { decodeInput } from '../components/SorteoFormValidator.js';
 
 const tablaSorteos = document.querySelector('#listaSorteos tbody');
+const toast = new Toasted({
+  position: 'top-center',
+  duration: 3500,
+  theme: 'alive',
+});
 
 try {
   const loadingMessage = document.createElement('tr');
@@ -66,31 +71,6 @@ try {
           window.location.href = `../pages/modificar-sorteo.html?nombre=${sorteo.nombre}&descripcion=${sorteo.descripcion}&fechaInicio=${sorteo.fechaInicio}&fechaFin=${sorteo.fechaFin}&fechaSorteo=${sorteo.fechaSorteo}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}&imagenPromocional=${sorteo.imagenPromocional}&id=${sorteo._id}`;
         });
         tdButton.appendChild(buttonModificar);
-
-        const buttonEliminar = document.createElement('button');
-        buttonEliminar.classList.add('material-icons');
-        buttonEliminar.classList.add('btn-eliminar');
-        buttonEliminar.textContent = 'delete';
-        buttonEliminar.addEventListener('click', () => {
-          const popup = document.createElement('confirmation-popup');
-          popup.addEventListener('confirm', () => {
-            API.deleteSorteo(sorteo._id)
-              .then(() => {
-                popup.remove();
-                toast.show('Sorteo eliminado exitosamente');
-                tr.remove();
-              })
-              .catch((error) => {
-                console.error(error);
-                popup.remove();
-                toast.show(
-                  'Error al eliminar el sorteo, intenta de nuevo más tarde'
-                );
-              });
-          });
-          document.body.appendChild(popup);
-        });
-        tdButton.appendChild(buttonEliminar);
 
         tdButton.classList.add('actions-container');
         tr.appendChild(tdButton);
