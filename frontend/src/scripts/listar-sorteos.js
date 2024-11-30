@@ -18,6 +18,13 @@ try {
   loadingMessage.appendChild(loadingTd);
   tablaSorteos.appendChild(loadingMessage);
 
+  const toast = new Toasted({
+    position: 'top-center',
+    duration: 1500,
+    className: 'alive',
+    theme: 'alive',
+  });
+
   API.getSorteos()
     .then((response) => {
       const sorteos = response.data;
