@@ -1,3 +1,8 @@
+/**
+ * Validate form fields from sorteo object
+ * @param {*} sorteo The sorteo object
+ * @returns {object} The validation object
+ */
 export const validateDates = (sorteo) => {
   const fechaActual = new Date();
   const fechaSorteo = new Date(sorteo.fechaSorteo);
@@ -33,6 +38,11 @@ export const validateDates = (sorteo) => {
   };
 };
 
+/**
+ * Validate numbers from form fields
+ * @param {*} sorteo The sorteo object
+ * @returns {object} The validation object
+ */
 export const validateNumbers = (sorteo) => {
   const rangoNumeros = parseInt(sorteo.rangoNumeros, 10);
   const precioNumero = parseFloat(sorteo.precioNumero);
@@ -52,6 +62,11 @@ export const validateNumbers = (sorteo) => {
   return { isValid: true };
 };
 
+/**
+ * Handle error messages from API
+ * @param {*} error The error object
+ * @returns {string} The error message
+ */
 export const errorHandler = (error) => {
   if (error.response) {
     const errorMessage = error.response.data.error.errorResponse.errmsg;
