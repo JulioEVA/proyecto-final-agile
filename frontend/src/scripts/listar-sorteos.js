@@ -77,4 +77,7 @@ try {
     .finally(() => {
       loadingMessage.remove();
     });
-} catch (error) {}
+} catch (error) {
+  console.error(error);
+  toast.error('Error al cargar los sorteos, intenta de nuevo más tarde');
+}
