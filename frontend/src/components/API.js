@@ -36,4 +36,12 @@ API.updateSorteo = async (id, sorteo) => {
   }
 };
 
+API.deleteSorteo = async (id) => {
+  try {
+    return await API.delete(`/sorteos/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default API;
