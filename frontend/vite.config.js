@@ -31,7 +31,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'src/index.html'),
         ...getPages(resolve(__dirname, 'src/pages')), // Agrega dinámicamente páginas de src/pages
-        confirmationPopup: resolve(
+        ConfirmationPopup: resolve(
           __dirname,
           'src/components/ConfirmationPopup/ConfirmationPopup.js'
         ),
