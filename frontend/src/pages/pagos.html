@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Control de Pagos - Sorteo</title>
-    <link rel="stylesheet" href="styles-pagos.css" />
+    <link rel="stylesheet" href="../styles/styles-pagos.css" />
   </head>
   <body>
     <header>
@@ -37,7 +37,7 @@
           </tbody>
         </table>
       </section>
-      <a href="numeros.html" class="boton">Volver</a>
+      <a href="sorteos.html" class="boton">Volver</a>
     </div>
 
     <!-- Modal para registrar pago -->
@@ -46,9 +46,13 @@
         <span class="close-btn" id="closeModal">&times;</span>
         <h2>Registrar Pago para Boleto #002</h2>
         <form>
-
           <label for="clientePago">Cliente:</label>
-          <input type="text" id="clientePago" value="Fernanda Enríquez" readonly />
+          <input
+            type="text"
+            id="clientePago"
+            value="Fernanda Enríquez"
+            readonly
+          />
 
           <label for="montoPago">Monto del Pago:</label>
           <input type="number" id="montoPago" value="100" readonly />
@@ -70,14 +74,12 @@
       </div>
     </div>
 
-
     <!-- Modal para ver comprobante pago -->
     <div class="modal" id="modalVerificar">
       <div class="modal-content">
         <span class="close-btn" id="closeModalVerificar">&times;</span>
         <h2>Verificar Pago para Boleto #002</h2>
         <form>
-
           <h4>Cliente:</h4>
           <p>Daniel Melchor</p>
 
@@ -89,11 +91,10 @@
 
           <h4>Fecha:</h4>
           <p>8 de noviembre de 2024</p>
-
         </form>
       </div>
     </div>
 
-    <script src="../scripts/modal-pagos.js"></script>
+    <script src="../scripts/modal-pagos.js" type="module"></script>
   </body>
 </html>
