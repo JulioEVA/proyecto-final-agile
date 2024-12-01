@@ -13,11 +13,16 @@ export function initRouter() {
     .on('/sorteos', async () => {
       await loadPage('../pages/listar-sorteos.html');
     })
-    .on('/numeros', async () => {
-      await loadPage('../pages/listar-numeros.html');
-    })
     .on('/pagos', async () => {
       await loadPage('../pages/listar-pagos.html');
+    })
+    .on('/listar-numeros', async (params) => {
+      const queryParams = new URLSearchParams(window.location.search);
+      await loadPage('../pages/listar-numeros.html', queryParams);
+    })
+    .on('/modificar-sorteo', async (params) => {
+      const queryParams = new URLSearchParams(window.location.search);
+      await loadPage('../pages/modificar-sorteo.html', queryParams);
     })
     .notFound(() => {
       document.getElementById('app').innerHTML =
@@ -75,6 +80,6 @@ async function loadScript(scriptPath) {
       document.body.appendChild(scriptElement);
     });
   } catch (error) {
-    console.error(`Error al cargar el script: ${scriptPath}`, error);
+    console.error(`Error al cargar el script: ${finalPath}`, error);
   }
 }
