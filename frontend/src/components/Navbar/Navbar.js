@@ -3,10 +3,9 @@ export function loadNavbar() {
   navbar.className = 'navbar';
   navbar.innerHTML = `
     <ul>
-      <li><a href="/" data-navigo>Inicio</a></li>
-      <li><a href="/sorteos" data-navigo>Sorteos</a></li>
-      <li><a href="/numeros" data-navigo>Números</a></li>
-      <li><a href="/pagos" data-navigo>Pagos</a></li>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/sorteos">Sorteos</a></li>
+      <li><a href="/pagos">Pagos</a></li>
     </ul>
   `;
   document.body.prepend(navbar);

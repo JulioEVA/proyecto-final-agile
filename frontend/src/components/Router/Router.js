@@ -47,17 +47,33 @@ async function loadPage(path) {
   }
 }
 
+/**
+ * Carga un script de manera dinámica
+ * @param {string} scriptPath Ruta del script a cargar
+ */
 async function loadScript(scriptPath) {
+  const scriptBasePath = import.meta.env.BASE_URL || '/'; // Base URL generada por Vite
+  const finalPath = `${scriptBasePath}scripts/${scriptPath
+    .split('/')
+    .pop()
+    .replace('.html', '.js')}`;
+
+  // Verificar si el script ya está cargado
+  if (document.querySelector(`script[src="${finalPath}"]`)) {
+    return; // El script ya está cargado, no hacer nada
+  }
+
   try {
-    const response = await fetch(scriptPath);
-    if (!response.ok) return; // Si el script no existe, simplemente lo ignoramos
+    const scriptElement = document.createElement('script');
+    scriptElement.src = finalPath;
+    scriptElement.type = 'module';
 
-    const scriptContent = await response.text();
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.textContent = scriptContent;
-
-    document.body.appendChild(script);
+    // Agregar el script al DOM y esperar que se cargue
+    return new Promise((resolve, reject) => {
+      scriptElement.onload = resolve;
+      scriptElement.onerror = reject;
+      document.body.appendChild(scriptElement);
+    });
   } catch (error) {
     console.error(`Error al cargar el script: ${scriptPath}`, error);
   }
