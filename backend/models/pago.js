@@ -1,12 +1,8 @@
 const mongoose = require("mongoose");
 
 const PagoSchema = new mongoose.Schema({
-  participanteId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Participante",
-    required: true,
-  },
-  numerosPagados: [{ type: mongoose.Schema.Types.ObjectId, required: true }],
+  nombreParticipante: { type: String, required: true },
+  numerosPagados: [{ type: Number, required: true }],
   comprobante: { type: String },
   montoTotal: { type: Number, required: true },
   metodoPago: {
