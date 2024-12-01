@@ -14,7 +14,7 @@ export function initRouter() {
       await loadPage('../pages/listar-sorteos.html');
     })
     .on('/pagos', async () => {
-      await loadPage('../pages/listar-pagos.html');
+      await loadPage('../pages/crear-pago.html');
     })
     .on('/listar-numeros', async (params) => {
       const queryParams = new URLSearchParams(window.location.search);

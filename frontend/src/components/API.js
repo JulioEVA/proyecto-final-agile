@@ -44,4 +44,27 @@ API.deleteSorteo = async (id) => {
   }
 };
 
+API.deleteSorteo = async (id) => {
+  try {
+    return await API.delete(`/sorteos/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
+
+API.createPago = async (pago) => {
+  try {
+    return await API.post('/pagos', pago);
+  } catch (error) {
+    throw error;
+  }
+};
+
+API.getPagos = async () => {
+  try {
+    return await API.get('/pagos');
+  } catch (error) {
+    throw error;
+  }
+};
 export default API;
