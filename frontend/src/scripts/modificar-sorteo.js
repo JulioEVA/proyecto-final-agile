@@ -132,7 +132,7 @@ form.addEventListener('submit', async (event) => {
     await API.updateSorteo(id, sorteo);
     toast.success('Sorteo actualizado exitosamente, redigiriendo...');
     setTimeout(() => {
-      window.location.href = './sorteos.html';
+      window.location.href = '/sorteos';
     }, 3000);
     //form.reset();
   } catch (error) {
