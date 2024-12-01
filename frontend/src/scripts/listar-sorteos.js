@@ -2,6 +2,7 @@ import API from '../components/API.js';
 import Toasted from 'toastedjs/dist/toasted.min.js';
 import 'material-icons/iconfont/material-icons.css';
 import { decodeInput } from '../components/SorteoFormValidator.js';
+import '../components/ConfirmationPopup/ConfirmationPopup.js';
 
 const tablaSorteos = document.querySelector('#listaSorteos tbody');
 
@@ -53,7 +54,7 @@ try {
         buttonDetalle.classList.add('btn-detalle');
         buttonDetalle.textContent = 'Ver Números';
         buttonDetalle.addEventListener('click', () => {
-          window.location.href = `../pages/numeros.html?id=${sorteo._id}&nombre=${sorteo.nombre}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}`;
+          window.location.href = `/listar-numeros?id=${sorteo._id}&nombre=${sorteo.nombre}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}`;
         });
         tdButton.appendChild(buttonDetalle);
 
@@ -62,7 +63,7 @@ try {
         buttonModificar.classList.add('btn-modificar');
         buttonModificar.textContent = 'edit';
         buttonModificar.addEventListener('click', () => {
-          window.location.href = `../pages/modificar-sorteo.html?nombre=${sorteo.nombre}&descripcion=${sorteo.descripcion}&fechaInicio=${sorteo.fechaInicio}&fechaFin=${sorteo.fechaFin}&fechaSorteo=${sorteo.fechaSorteo}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}&imagenPromocional=${sorteo.imagenPromocional}&id=${sorteo._id}`;
+          window.location.href = `/modificar-sorteo?nombre=${sorteo.nombre}&descripcion=${sorteo.descripcion}&fechaInicio=${sorteo.fechaInicio}&fechaFin=${sorteo.fechaFin}&fechaSorteo=${sorteo.fechaSorteo}&rangoNumeros=${sorteo.rangoNumeros}&precioNumero=${sorteo.precioNumero}&imagenPromocional=${sorteo.imagenPromocional}&id=${sorteo._id}`;
         });
         tdButton.appendChild(buttonModificar);
 
@@ -87,7 +88,7 @@ try {
                 );
               });
           });
-          document.body.appendChild(popup);
+          document.querySelector('#app').appendChild(popup);
         });
         tdButton.appendChild(buttonEliminar);
 
