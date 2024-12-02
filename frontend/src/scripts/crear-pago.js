@@ -65,7 +65,7 @@ formRegistrarPago.addEventListener('submit', async (event) => {
   const metodoPago = document.getElementById('metodoPago').value;
 
   const pagoData = {
-    participanteId: nombreParticipante,
+    nombreParticipante,
     numerosPagados,
     montoTotal,
     metodoPago,
@@ -91,28 +91,88 @@ formRegistrarPago.addEventListener('submit', async (event) => {
 async function loadPagos() {
   try {
     const response = await API.getPagos();
-    const pagos = await response.json();
+    const pagos = response.data;
 
     const tablaPagos = document
       .getElementById('tablaPagos')
       .getElementsByTagName('tbody')[0];
     tablaPagos.innerHTML = ''; // Limpiar tabla
 
+    if (pagos.length === 0) {
+      const row = tablaPagos.insertRow();
+      row.innerHTML = '<td colspan="5">No hay pagos registrados</td>';
+      return;
+    }
+
     pagos.forEach((pago) => {
       const row = tablaPagos.insertRow();
+
+      let viewLink = 'No disponible';
+      if (pago.comprobante) {
+        viewLink = `<a href="#" class="ver-comprobante" data-image="${pago.comprobante}">Ver Comprobante</a>`;
+      }
       row.innerHTML = `
-            <td>${pago.participanteId}</td>
-            <td>${pago.numerosPagados.join(', ')}</td>
-            <td>${pago.montoTotal}</td>
-            <td>${new Date(pago.fechaPago).toLocaleDateString()}</td>
-            <td><a href="${
-              pago.comprobante
-            }" target="_blank">Ver Comprobante</a></td>
-          `;
+          <td>${pago.nombreParticipante}</td>
+          <td>${pago.numerosPagados.join(', ')}</td>
+          <td>${pago.montoTotal}</td>
+          <td>${new Date(pago.fechaPago).toLocaleDateString()}</td>
+          <td>${viewLink}</td>
+        `;
+    });
+
+    // Agregar un listener para los enlaces "Ver Comprobante"
+    document.querySelectorAll('.ver-comprobante').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const imageUri = event.target.getAttribute('data-image');
+        showImagePopup(imageUri); // Mostrar la imagen en un popup
+      });
     });
   } catch (error) {
     console.error('Error al cargar los pagos: ', error);
   }
+}
+
+function showImagePopup(imageUri) {
+  // Crear el modal de imagen
+  const modal = document.createElement('div');
+  modal.style.position = 'fixed';
+  modal.style.top = '0';
+  modal.style.left = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+  modal.style.display = 'flex';
+  modal.style.justifyContent = 'center';
+  modal.style.alignItems = 'center';
+  modal.style.zIndex = '1000';
+
+  // Crear la imagen dentro del modal
+  const image = document.createElement('img');
+  image.src = imageUri; // Esta es la cadena base64 que se pasa como URI de imagen
+  image.style.maxWidth = '90%';
+  image.style.maxHeight = '90%';
+  image.style.border = '1px solid white';
+
+  // Crear un botón de cerrar
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Cerrar';
+  closeButton.style.position = 'absolute';
+  closeButton.style.top = '20px';
+  closeButton.style.right = '20px';
+  closeButton.style.border = 'none';
+  closeButton.style.padding = '10px';
+  closeButton.style.cursor = 'pointer';
+
+  closeButton.addEventListener('click', () => {
+    document.body.removeChild(modal); // Cerrar el modal
+  });
+
+  modal.appendChild(image);
+  modal.appendChild(closeButton);
+
+  // Agregar el modal al body
+  document.body.appendChild(modal);
 }
 
 loadPagos(); // Cargar pagos al inicio
