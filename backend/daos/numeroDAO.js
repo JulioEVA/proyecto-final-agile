@@ -11,7 +11,7 @@ exports.crearNumero = async (numeroData) => {
   if (!sorteoId || !numero) {
     throw new Error("No se proporcionó el sorteo o el número");
   }
-  const nuevoNumero = new Numero({ numero, sorteo: sorteoId });
+  const nuevoNumero = new Numero({ numero, sorteoId: sorteoId });
 
   const sorteo = await Sorteo.findById(sorteoId);
   if (!sorteo) {
