@@ -1,5 +1,6 @@
 import API from '../components/API.js';
 import Toasted from 'toastedjs/dist/toasted.min.js';
+import '../../node_modules/toastedjs/dist/toasted.min.css';
 import 'material-icons/iconfont/material-icons.css';
 import { decodeInput } from '../components/SorteoFormValidator.js';
 import '../components/ConfirmationPopup/ConfirmationPopup.js';
@@ -17,7 +18,8 @@ try {
   const toast = new Toasted({
     position: 'top-center',
     duration: 1000,
-    className: 'alive',
+    theme: 'alive',
+    containerId: 'app',
   });
 
   API.getSorteos()
