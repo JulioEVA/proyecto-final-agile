@@ -10,7 +10,9 @@ exports.crearNumero = async (req, res) => {
     const numero = await numeroDao.crearNumero(req.body);
     res.status(201).json(numero);
   } catch (error) {
-    res.status(400).json({ message: "Error al crear el número", error });
+    res
+      .status(400)
+      .json({ message: "Error al crear el número", error: error?.message });
   }
 };
 
