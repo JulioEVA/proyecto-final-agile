@@ -1,7 +1,16 @@
+import Toasted from 'toastedjs/dist/toasted.min.js';
+import '../../node_modules/toastedjs/dist/toasted.min.css';
 import API from '../components/API';
 import Auth from '../components/Auth/Auth';
 
 const formLogin = document.getElementById('formLogin');
+
+const toast = new Toasted({
+  position: 'top-center',
+  duration: 3500,
+  theme: 'alive',
+  containerId: 'app',
+});
 
 formLogin.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -18,6 +27,6 @@ formLogin.addEventListener('submit', async (event) => {
     window.location.href = '/';
   } catch (error) {
     console.error('Error al iniciar sesión:', error);
-    alert('Usuario o contraseña incorrectos.');
+    toast.error('Usuario o contraseña incorrectos.');
   }
 });
