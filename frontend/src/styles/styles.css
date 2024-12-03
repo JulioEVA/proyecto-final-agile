@@ -58,15 +58,3 @@ header {
 .navbar a:hover {
   background-color: #1769aa; /* Color azul más oscuro al pasar el cursor */
 }
-<<<<<<< Updated upstream
-=======
-
-header {
-  width: 100%;
-  background-color: #0f91db;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
->>>>>>> Stashed changes
