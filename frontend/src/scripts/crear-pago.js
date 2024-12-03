@@ -1,9 +1,12 @@
 import API from '../components/API';
 import Toasted from 'toastedjs/dist/toasted.min.js';
+import '../../node_modules/toastedjs/dist/toasted.min.css';
 
 const Toast = new Toasted({
   position: 'top-center',
   duration: 3500,
+  theme: 'alive',
+  containerId: 'app',
 });
 
 const formRegistrarPago = document.getElementById('formRegistrarPago');
