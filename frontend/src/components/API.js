@@ -67,4 +67,12 @@ API.getPagos = async () => {
     throw error;
   }
 };
+
+API.login = async (credentials) => {
+  try {
+    return await API.post('/login', credentials);
+  } catch (error) {
+    throw error;
+  }
+};
 export default API;
