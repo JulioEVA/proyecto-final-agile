@@ -1,4 +1,5 @@
 import Navigo from 'navigo';
+import Auth from '../Auth/Auth.js';
 
 const router = new Navigo('/');
 
@@ -7,22 +8,35 @@ const router = new Navigo('/');
  */
 export function initRouter() {
   router
-    .on('/', async () => {
-      await loadPage('../pages/crear-sorteo.html');
+    .on('/', () => {
+      Auth.requireAuth(async () => {
+        await loadPage('../pages/crear-sorteo.html');
+      });
     })
-    .on('/sorteos', async () => {
-      await loadPage('../pages/listar-sorteos.html');
+    .on('/login', async () => {
+      await loadPage('../pages/login.html');
     })
-    .on('/pagos', async () => {
-      await loadPage('../pages/crear-pago.html');
+    .on('/sorteos', () => {
+      Auth.requireAuth(async () => {
+        await loadPage('../pages/listar-sorteos.html');
+      });
     })
-    .on('/listar-numeros', async (params) => {
-      const queryParams = new URLSearchParams(window.location.search);
-      await loadPage('../pages/listar-numeros.html', queryParams);
+    .on('/pagos', () => {
+      Auth.requireAuth(async () => {
+        await loadPage('../pages/crear-pago.html');
+      });
     })
-    .on('/modificar-sorteo', async (params) => {
-      const queryParams = new URLSearchParams(window.location.search);
-      await loadPage('../pages/modificar-sorteo.html', queryParams);
+    .on('/listar-numeros', () => {
+      Auth.requireAuth(async (params) => {
+        const queryParams = new URLSearchParams(window.location.search);
+        await loadPage('../pages/listar-numeros.html', queryParams);
+      });
+    })
+    .on('/modificar-sorteo', () => {
+      Auth.requireAuth(async (params) => {
+        const queryParams = new URLSearchParams(window.location.search);
+        await loadPage('../pages/modificar-sorteo.html', queryParams);
+      });
     })
     .notFound(() => {
       document.getElementById('app').innerHTML =
