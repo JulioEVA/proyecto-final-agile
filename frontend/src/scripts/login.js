@@ -23,8 +23,10 @@ formLogin.addEventListener('submit', async (event) => {
     const { token } = response.data;
 
     Auth.setToken(token);
-
-    window.location.href = '/';
+    toast.success('Inicio de sesión exitoso. Redirigiendo...');
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 1500);
   } catch (error) {
     console.error('Error al iniciar sesión:', error);
     toast.error('Usuario o contraseña incorrectos.');
