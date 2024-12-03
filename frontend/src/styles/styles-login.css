@@ -1,0 +1,75 @@
+.hidden {
+  display: none;
+}
+
+/* General body styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form container */
+#formLogin {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Form title */
+#formLogin h2 {
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+#formLogin label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Input fields */
+#formLogin input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#formLogin input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit button */
+#formLogin button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#formLogin button:hover {
+  background-color: #0056b3;
+}
