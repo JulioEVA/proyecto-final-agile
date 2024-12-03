@@ -13,6 +13,7 @@ export function loadNavbar() {
       <li><a href="/">Inicio</a></li>
       <li><a href="/sorteos">Sorteos</a></li>
       <li><a href="/pagos">Pagos</a></li>
+      <li><a href="/usuarios">Usuarios</a></li>
     </ul>
     <button id="btnLogout">Cerrar sesión</button>
   `;
