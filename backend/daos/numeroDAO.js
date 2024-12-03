@@ -8,6 +8,9 @@ const Sorteo = require("../models/sorteo");
  */
 exports.crearNumero = async (numeroData) => {
   const { sorteoId, numero } = numeroData;
+  if (!sorteoId || !numero) {
+    throw new Error("No se proporcionó el sorteo o el número");
+  }
   const nuevoNumero = new Numero({ numero, sorteo: sorteoId });
 
   const sorteo = await Sorteo.findById(sorteoId);
