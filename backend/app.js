@@ -26,7 +26,7 @@ const uri = `mongodb+srv://julio:${process.env.DB_PASSWORD}@free-cluster.uhnhc.m
 
 app.use(express.json());
 
-app.post("api/login", login);
+app.post("/api/login", login);
 //app.use(authMiddleware);
 
 /**
