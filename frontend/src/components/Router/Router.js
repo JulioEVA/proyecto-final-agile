@@ -26,6 +26,11 @@ export function initRouter() {
         await loadPage('../pages/crear-pago.html');
       });
     })
+    .on('/usuarios', () => {
+      Auth.requireAuth(async () => {
+        await loadPage('../pages/usuarios.html');
+      });
+    })
     .on('/listar-numeros', () => {
       Auth.requireAuth(async (params) => {
         const queryParams = new URLSearchParams(window.location.search);
