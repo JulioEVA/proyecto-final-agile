@@ -75,4 +75,37 @@ API.login = async (credentials) => {
     throw error;
   }
 };
+
+API.getUsuarios = async () => {
+  try {
+    return await API.get('/usuarios');
+  } catch (error) {
+    throw error;
+  }
+};
+
+API.createUsuario = async (usuario) => {
+  try {
+    return await API.post('/usuarios', usuario);
+  } catch (error) {
+    throw error;
+  }
+};
+
+API.deleteUsuario = async (id) => {
+  try {
+    return await API.delete(`/usuarios/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
+
+API.updateUsuario = async (id, usuario) => {
+  try {
+    return await API.put(`/usuarios/${id}`, usuario);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default API;
