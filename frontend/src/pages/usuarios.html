@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="../styles/styles-usuarios.css" />
+    <script src="../scripts/usuarios.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gestión de Usuarios</h1>
+
+      <form id="formUsuario">
+        <h2>Crear Usuario</h2>
+        <label for="nombreUsuario">Usuario:</label>
+        <input type="text" id="nombreUsuario" name="nombreUsuario" required />
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" />
+
+        <label for="rol">Rol:</label>
+        <select id="rol" name="rol" required>
+          <option value="organizador">Organizador</option>
+          <option value="cliente">Cliente</option>
+        </select>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado">
+          <option value="activo" selected>Activo</option>
+          <option value="inactivo">Inactivo</option>
+        </select>
+
+        <button type="submit">Guardar Usuario</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUsuarios"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
