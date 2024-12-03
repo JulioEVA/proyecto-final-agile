@@ -18,10 +18,11 @@ const NumeroSchema = new mongoose.Schema({
   sorteoId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Sorteo",
-    default: null,
+    required: true,
   },
   fechaApartado: { type: Date },
   precioPagado: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model("Numero", NumeroSchema);
+const Numero = mongoose.model("Numero", NumeroSchema);
+module.exports = Numero;
