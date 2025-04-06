@@ -1,15 +1,12 @@
-# fly.toml app configuration file generated for proyecto-final-agile on 2024-11-11T02:56:02Z
+# fly.toml app configuration file generated for proyecto-final-agile on 2025-04-06T20:55:08Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'proyecto-final-agile'
-primary_region = 'phx'
+primary_region = 'qro'
 
 [build]
-
-[env]
-  PORT = '8080'
 
 [http_service]
   internal_port = 3000
